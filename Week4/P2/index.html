@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title> Crypto Rate Finder App 2 </title>
+        <style>
+            * {font-size: 70px; font-family: Cambria;}
+            body{ background-color: linen; }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>Cyrpto Rate Finder App 2 </h1>
+            <form onsubmit="find()">
+                <label for="curr"> Select One Crypto Currency</label>
+                <select id="curr">
+                    <option value="BTC" > BTC </option>
+                    <option value="DOGE" > DOGE </option>
+                    <option value="ETH" > ETH </option>
+                </select>
+                <br/><br/>
+                <input type="submit" value="Find Rates"/>                
+            </form>
+            <h2 id="msg" />
+
+            <script>
+                function find()
+                {
+                    event.preventDefault();
+                    let curr = document.getElementById("curr");
+                    let msg = document.getElementById("msg");
+
+                    let a1 = "https://api.coinlayer.com/live?";
+                    let a2 = "access_key=d9361841534c8d554165e622d08bc898";
+                    let url = a1+a2;
+
+                    fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        let r = data["rates"][curr.value];
+                        msg.innerHTML="$"+r;
+                    })
+                    .catch(err => msg.innerHTML="issue "+err);
+                }
+            </script>
+
+        </center>
+    </body>
+</html>

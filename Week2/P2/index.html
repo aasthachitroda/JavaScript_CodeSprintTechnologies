@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title> Name App by Aastha </title>
+		<style>
+			* {font-size:50px; font-family:Cambria;}
+			body {background-color: azure;}
+			h1 {background-color: linen; width:60%; border-radius:30px;}
+		</style>
+	</head>
+	<body>
+		<center>
+			<br>
+			<h1> Name App by Aastha 1</h1>
+			<br>
+			
+			<form onsubmit="show()">
+				<input type="text" placeholder="Enter Name" id="name"/>
+				<br/> <br/>
+				<input type="submit"/>
+			</form>
+			
+			<h2 id="msg" />
+			
+			<script>
+				function show()
+				{
+					event.preventDefault();
+					let name = document.getElementById("name");
+					let msg = document.getElementById("msg");
+					
+					if(name.value.trim()==="")
+					{
+						alert("Please enter name");
+						msg.innerHtml="";
+						name.value="";
+						name.focus();
+						return;
+					}
+
+					if(!name.value.match(/^[A-Za-z ]+$/))
+					{
+						alert("Name should contain only alphabets");
+						msg.innerHtml="";
+						name.value="";
+						name.focus();
+						return;
+					}
+					
+					let n = name.value;
+					
+					let a = "Welcome " + n;
+					msg.innerHTML=a;
+
+				}
+			</script>
+		</center>
+	</body>
+</html>
+

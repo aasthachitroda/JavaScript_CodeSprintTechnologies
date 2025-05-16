@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title> Motivational Message App 2 </title>
+        <style>
+        * { font-size: 40px; font-family:Cambria; }
+        body { background-color: linen; }
+        h2 {width: 70%; border: groove; border-radius:40px;}
+        </style>
+    </head>
+    <body>
+	<center>
+        <br>
+        <h1> Motivation Message App 2 </h1>
+        <br>
+        
+        <h2 id="msg"/>
+        <h2 id="aut"/>
+
+        <script>
+            function gm()
+            {
+                let msg = document.getElementById("msg");
+                let aut = document.getElementById("aut");
+
+                let url = "https://quotes-api-self.vercel.app/quote";
+                fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    msg.innerHTML = data.quote;
+                    aut.innerHTML = data.author;
+                })
+                .catch(err => inner.HTML = "issue" + err);
+            }
+            
+            gm();
+            setInterval(gm, 10000);
+        </script>
+	</center>
+    </body>
+</html>
+

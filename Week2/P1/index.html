@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title> Square Finder By Aastha </title>
+		
+		<style>
+			* {font-family: Ink Free; font-size:50px;}
+			body {background-color: linen;}
+			h1 {background-color:pink; width:70%; border-radius:40px;}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+			<br>
+			<h1> Square Finder App by Aastha </h1>
+			
+			<form onsubmit="findSqr()">
+			<input type="number" step="any" placeholder="enter number" id="num" />
+			<br/> <br/>
+			<input type="submit" value="Find Square"/>
+			</form>
+			
+			<h2 id="msg">
+			
+			<script>
+				function findSqr()
+				{
+					event.preventDefault();
+					let num = document.getElementById("num");
+					let msg = document.getElementById("msg");
+					
+					if(num.value === "" )
+					{
+						alert("Enter Number");
+						msg.innerHtml="";
+						num.focus();
+						return;
+					}			
+					
+					let n = parseFloat(num.value);
+					let r = n**2;
+					let a="square = " + r.toFixed(3);
+					msg.innerHTML=a;
+								
+				}
+			</script>
+		</center>
+	</body>
+</html>

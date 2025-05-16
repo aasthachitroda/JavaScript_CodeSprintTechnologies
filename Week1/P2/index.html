@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>
+			Greeting App by Aastha
+		</title>
+		<style>
+			h1{ font-size:150px; }
+			body{ background-color:linen; }
+		</style>
+	</head>
+	</body>
+		<center>
+			<br>
+			<h1 id="msg"></h1>
+			<script>
+				let msg=document.getElementById("msg");
+				let d=new Date();
+				let h=d.getHours();
+				
+				if(h<12)
+					msg.innerHTML=("Good Morning");
+				else if(h<16)
+					msg.innerHTML=("Good Afternoon");
+				else
+					msg.innerHTML=("Good Evening");
+					
+			</script>
+		</center>
+	</body>
+</html>

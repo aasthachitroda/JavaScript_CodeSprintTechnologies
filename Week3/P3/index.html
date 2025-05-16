@@ -1,0 +1,42 @@
+<html>
+	<head>
+	<title> Currency Converter App <title>
+	<style>
+		* { font-size: 40px; font-family:Cambria; }
+		body { background-color: azure; }
+	</style>
+	</head>
+	<body>
+		<h1> Currency Converter App </h1>
+		<form onsubmit= "convert()" >
+			<input type="number" step="any" placeholder="Enter Amount in Dollar" id="d_amt" />
+			<input type="submit" placeholder="Submit" />
+		</form>
+		<h2 id="msg" />
+		
+		
+		<script>
+			convert() 
+			{
+				let d_amt = document.getElementById("d_amt");
+				let msg = document.getElementById("msg");
+				
+				let amount = parseFloat(d_amt.value);
+				
+				let url ="https://api.exchangerate-api.com/v4/latest/USD";
+				fetch(url)
+				.then(res => res.json)
+				.then(data => {
+					let live_rate = data.rates.INR;
+				} )
+				.catch(err =>  innerHTML = "issue" + err );
+				
+				let rate = parseFloat(live_rate.value);
+				
+				let ans = amount*rate;
+				msg.innerHTML=(ans.toFixed(2));
+				
+			}
+		</script>
+	</body>
+</html>
